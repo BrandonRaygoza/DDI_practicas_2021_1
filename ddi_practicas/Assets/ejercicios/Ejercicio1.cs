@@ -33,7 +33,7 @@ public class Ejercicio1 : MonoBehaviour
         /*Ordenar (Bubblesort)*/
         nums = bubbleSort(nums);
 
-        /*Generar arreglo con la cuenta de los elementos menores al valor en su misma pos*/
+        /*Generar arreglo con el número de los elementos menores al x valor en su misma pos dentro del arreglo*/
         for(int i=0; i<nums.Length; i++){
             for(int j = 0; j<nums.Length; j++){
                 if(original[i] == nums[j]){
