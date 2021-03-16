@@ -6,8 +6,7 @@ using UnityEngine;
 /*Clase que añade un objetio al inventario*/
 public class PickUpObject : Interactable
 {
-
-    public Item item; //Referencia al ScriptableObject que existe en los assets del proyecto    
+    public Item item; //Referencia al ScriptableObject que existe en los assets del proyecto  
 
     public override void Interact(){
        

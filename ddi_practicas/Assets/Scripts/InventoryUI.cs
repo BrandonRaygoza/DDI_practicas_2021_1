@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 /*El script tiene que ser agregado en un elemento padre al panel, ya que si se apaga asi mismo puede causar errores
 En este caso fue agregado al canvas
@@ -10,6 +11,7 @@ public class InventoryUI : MonoBehaviour
 {
 
     private Inventory _inventory;
+    public string interactionButton = "Inventory"; 
     public GameObject inventoryPanel;
     public GameObject textInventoryPanel;
     private AudioSource sound;
@@ -25,7 +27,8 @@ public class InventoryUI : MonoBehaviour
 
     void Update() 
     {
-        if(Input.GetKeyDown(KeyCode.I)){
+        //if(Input.GetKeyDown(KeyCode.I)){
+        if(CrossPlatformInputManager.GetButtonDown(interactionButton)){
             inventoryPanel.SetActive(!inventoryPanel.activeSelf); //Prendido? -> Apagalo, Apagado? -> Prendelo
             textInventoryPanel.SetActive(!textInventoryPanel.activeSelf); 
             UpdateUI();                         //Para que se actulice tambien aqui

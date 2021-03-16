@@ -43,6 +43,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        /*Aqui agregue cosas*/
+        //[HideInInspector]
+        //public Vector2 RunAxis;
+
         // Use this for initialization
         private void Start()
         {
@@ -207,6 +211,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // Read input
             float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
             float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+            //float horizontal = RunAxis.x; /*Estos dos los agregue yo*/
+            //float vertical = RunAxis.y;
 
             bool waswalking = m_IsWalking;
 

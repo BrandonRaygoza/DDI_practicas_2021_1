@@ -14,12 +14,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float MaximumX = 90F;
         public bool smooth;
         public float smoothTime = 5f;
-        public bool lockCursor = true;
+        public bool lockCursor = true; //para que los joystick funcionen en android
 
 
         private Quaternion m_CharacterTargetRot;
         private Quaternion m_CameraTargetRot;
         private bool m_cursorIsLocked = true;
+
+        /*Aqui agregue cosas*/
+        //[HideInInspector]
+        //public Vector2 LookAxis;
 
         public void Init(Transform character, Transform camera)
         {
@@ -32,6 +36,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             float yRot = CrossPlatformInputManager.GetAxis("Mouse X") * XSensitivity;
             float xRot = CrossPlatformInputManager.GetAxis("Mouse Y") * YSensitivity;
+            //float yRot = LookAxis.x * XSensitivity; /*Estos dos los agregue yo*/
+            //float xRot = LookAxis.y * YSensitivity;
 
             m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
             m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);

@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Interactable : MonoBehaviour
 {
 
     public bool inZone = false;
-    public KeyCode interactionKey = KeyCode.P;
+    //public KeyCode interactionKey = KeyCode.P;
+    public string interactionButton = "Interact"; //Como lo nombre en el InputManager
+    public GameObject interactionButtonUI;
 
     public virtual void Update(){
-        if(inZone && Input.GetKeyDown(interactionKey)){
+        //if(inZone && Input.GetKeyDown(interactionKey)){
+        if(inZone && CrossPlatformInputManager.GetButtonDown(interactionButton)){
             Interact();
         }
     }
@@ -20,6 +24,7 @@ public class Interactable : MonoBehaviour
         }else{
             inZone = true;
             Debug.Log("Entro en el area");
+            interactionButtonUI.SetActive(true);
         }
     }
 
@@ -29,6 +34,7 @@ public class Interactable : MonoBehaviour
         }else{
             inZone = false;
             Debug.Log("Se salio del area");
+            interactionButtonUI.SetActive(false);
         }
     }
 
