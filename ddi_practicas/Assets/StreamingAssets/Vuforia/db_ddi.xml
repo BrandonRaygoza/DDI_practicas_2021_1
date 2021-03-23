@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="pikachu_card" size="0.200000 0.280702" />
+    <ImageTarget name="charizard_card" size="0.200000 0.279070" />
+    <ImageTarget name="bulbasaur_card" size="0.200000 0.279184" />
+    <ImageTarget name="dark_magician" size="0.200000 0.278261" />
+  </Tracking>
+</QCARConfig>

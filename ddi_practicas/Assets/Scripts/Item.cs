@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Life, Mana, Equipment, Rupias
+    Life, Mana, Equipment, Rupias, Pokemon
 }
 
 /*

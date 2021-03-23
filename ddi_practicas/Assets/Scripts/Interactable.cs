@@ -38,6 +38,10 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    void OnMouseDown() {
+        Interact();
+    }
+
     public virtual void Interact(){ //puede estar vacio, pero en otras clases se puede extender
 
     }
