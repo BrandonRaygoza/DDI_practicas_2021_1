@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="black_magician_buttons" size="0.200000 0.277586" />
+    <ImageTarget name="sword_guy_buttons" size="0.200000 0.120133" />
+    <ImageTarget name="charizard_card_buttons" size="0.200000 0.278841" />
     <ImageTarget name="pikachu_card" size="0.200000 0.280702" />
     <ImageTarget name="charizard_card" size="0.200000 0.279070" />
     <ImageTarget name="bulbasaur_card" size="0.200000 0.279184" />
