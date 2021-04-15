@@ -25,18 +25,18 @@ public class MoveObject : Interactable
 
     public override void Interact(){
 
-        if(directionKey == KeyCode.X){                          //se mueve en x
-            rb.AddForce(transform.right*500,ForceMode.Force); 
-            Debug.Log("Objeto desplazado en X");  
-        }else if(directionKey == KeyCode.Y){                    //se mueve en y
-            rb.AddForce(transform.up*500,ForceMode.Force);
+        //if(directionKey == KeyCode.X){                          //se mueve en x
+            //rb.AddForce(transform.right*500,ForceMode.Force); 
+            //Debug.Log("Objeto desplazado en X");  
+        //}else if(directionKey == KeyCode.Y){                    //se mueve en y
+            rb.AddForce(transform.up*100,ForceMode.Force);
             Debug.Log("Objeto desplazado en Y");
-        }else if(directionKey == KeyCode.Z){
-            rb.AddForce(transform.forward*500,ForceMode.Force); //se mueve en z
-            Debug.Log("Objeto desplazado en Z");
-        }
+        //}else if(directionKey == KeyCode.Z){
+        //    rb.AddForce(transform.forward*500,ForceMode.Force); //se mueve en z
+        //    Debug.Log("Objeto desplazado en Z");
+        //}
 
-         moveSound.Play();
+         //moveSound.Play();
 
        
     }

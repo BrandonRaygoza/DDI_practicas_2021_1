@@ -7,14 +7,39 @@ public class Interactable : MonoBehaviour
 {
 
     public bool inZone = false;
+    public bool gazedAt = false; //VR
+    public float gazeTimer = 0;
+    public float maxGazeTime = 2f;
     //public KeyCode interactionKey = KeyCode.P;
     public string interactionButton = "Interact"; //Como lo nombre en el InputManager
     public GameObject interactionButtonUI;
+
+
 
     public virtual void Update(){
         //if(inZone && Input.GetKeyDown(interactionKey)){
         if(inZone && CrossPlatformInputManager.GetButtonDown(interactionButton)){
             Interact();
+        }
+
+        /*Para VR*/
+        if(gazedAt){ /*¿Lo estoy viendo?*/
+            if((gazeTimer += Time.deltaTime) >= maxGazeTime){
+                Interact();
+                gazedAt = false;
+                gazeTimer = 0f;
+            }
+        }
+        
+    }
+
+    /*Para VR*/
+    public void SetGazedAt(bool gazedAt)
+    {
+        this.gazedAt = gazedAt; /*¿Lo estoy viendo?*/
+        Debug.Log("Te estoy mirando");
+        if(!gazedAt){
+            gazeTimer = 0f;
         }
     }
 
@@ -37,6 +62,8 @@ public class Interactable : MonoBehaviour
             interactionButtonUI.SetActive(false);
         }
     }
+
+    
 
     /*Para presionar dedo en pantalla tactil*/
     //void OnMouseDown() {
