@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using IBM.Watsson.Examples;
 
 public class Interactable : MonoBehaviour
 {
@@ -9,12 +10,18 @@ public class Interactable : MonoBehaviour
     public bool inZone = false;
     public bool gazedAt = false; //VR
     public float gazeTimer = 0;
-    public float maxGazeTime = 2f;
+    public float maxGazeTime = 4f;
     //public KeyCode interactionKey = KeyCode.P;
     public string interactionButton = "Interact"; //Como lo nombre en el InputManager
     public GameObject interactionButtonUI;
 
+    public string voiceCommand = "Hi";
 
+    void Start()
+    {
+        VoiceCommandProcessor commandProcessor = GameObject.FindObjectOfType<VoiceCommandProcessor>();
+        commandProcessor.onCommandRecognized += OnCommandRecognized; //subscribirme al evento
+    }
 
     public virtual void Update(){
         //if(inZone && Input.GetKeyDown(interactionKey)){
@@ -22,15 +29,24 @@ public class Interactable : MonoBehaviour
             Interact();
         }
 
-        /*Para VR*/
+        /*Para VR (quite interact para el voice command)*/
         if(gazedAt){ /*¿Lo estoy viendo?*/
             if((gazeTimer += Time.deltaTime) >= maxGazeTime){
-                Interact();
+                //Interact();
                 gazedAt = false;
                 gazeTimer = 0f;
             }
         }
         
+    }
+
+    /*Para interaccion por voz*/
+    public void OnCommandRecognized(string command)
+    {
+        if(command.ToLower() == voiceCommand.ToLower() && gazedAt) /*El comando dicho es el registrado en el objeto y, ¿lo estoy viendo?*/
+        {
+            Interact();
+        }
     }
 
     /*Para VR*/
